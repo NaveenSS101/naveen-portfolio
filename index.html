@@ -287,7 +287,8 @@
     background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:22px;
     display:flex; flex-direction:column; gap:10px;
   }
-  .proj-card.featured{border-color:var(--copper-dim); background:linear-gradient(160deg, rgba(207,148,85,0.07), var(--panel));}
+  .proj-card.featured{border-color:var(--copper-dim); background:linear-gradient(160deg, rgba(207,148,85,0.07), var(--panel)); grid-column:1 / -1;}
+  .proj-card.featured ul{max-width:70ch;}
   .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
   .proj-card h3{margin:0; font-size:16.5px; color:var(--cream); font-weight:600;}
   .proj-date{font-family:var(--mono); font-size:11px; color:var(--muted-2); white-space:nowrap;}
@@ -396,6 +397,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#activities">Activities</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="resume.pdf" download="Naveen_S_S_Resume.pdf">Resume ↓</a></li>
     </ul>
     <div class="status-pill"><span class="status-dot"></span>OPEN TO OPPORTUNITIES</div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -420,14 +422,15 @@
       <div class="hero-copy">
         <p class="eyebrow">// Final-year ECE · SNS College of Technology</p>
         <h1>Building real-time systems from <em>copper trace</em> to <em>edge-AI firmware</em>.</h1>
-        <p>I design PCBs, write embedded firmware for Arduino and ESP32 platforms, and wire up the IoT protocols that get sensors talking to the cloud — backed by a minor in AI &amp; Data Science and three hands-on internships across PCB design, telecom infrastructure, and product realization.</p>
+        <p>I design PCBs, write embedded firmware for Arduino and ESP32 platforms, and wire up the IoT protocols that get sensors talking to the cloud — backed by a minor in AI &amp; Data Science and six hands-on internships spanning PCB design, telecom infrastructure, product realization, and applied AI/cloud training.</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="resume.pdf" download="Naveen_S_S_Resume.pdf" class="btn btn-ghost">Download Resume ↓</a>
           <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
         <div class="spec-strip">
           <div class="spec"><b>8.72</b><span>CGPA</span></div>
-          <div class="spec"><b>03</b><span>Internships</span></div>
+          <div class="spec"><b>06</b><span>Internships</span></div>
           <div class="spec"><b>KiCad</b><span>PCB Design</span></div>
           <div class="spec"><b>Py / C++</b><span>Languages</span></div>
         </div>
@@ -441,11 +444,7 @@
       <div class="kicker"><span class="ref">U1</span> · About</div>
       <h2 class="title reveal">Datasheet</h2>
       <div class="reveal">
-        <p class="lede">I'm an Electronics &amp; Communication Engineering student who likes taking a system all the way from schematic to solder joint. My work spans PCB layout and design-rule checks in KiCad, embedded firmware on microcontroller platforms, and the IoT protocols that connect sensors to the cloud. A minor in AI &amp; Data Science means I'm just as comfortable training a lightweight model as I am routing the two-layer board it runs on — and long-term, I'm aiming that combination at aerospace and space-tech-grade embedded systems work.</p>
-        <div class="callout">
-          <span class="tag">● In Progress</span>
-          <p><b>Currently building EcoSentinel</b> — a TinyML wildlife-monitoring system pairing an Arduino Nano 33 BLE Sense (always-on audio classification) with an ESP32-CAM and LoRa for long-range, low-power forest surveillance alerts.</p>
-        </div>
+        <p class="lede">I'm an Electronics &amp; Communication Engineering student who likes taking a system all the way from schematic to solder joint. My work spans PCB layout and design-rule checks in KiCad, embedded firmware on microcontroller platforms, and the AI/cloud fundamentals I've picked up across six internships — from telecom infrastructure at BSNL to applied AI and Green Skills training with Edu Net Foundation and IBM SkillsBuild. A minor in AI &amp; Data Science ties it together: I'm as comfortable evaluating a model as I am routing the board it runs on.</p>
       </div>
     </div>
   </section>
@@ -481,12 +480,39 @@
       <h2 class="title reveal">Work Experience</h2>
       <div class="tl reveal">
         <div class="tl-item">
-          <div class="tl-head"><h3>Enthu Technology Solutions India Pvt Ltd</h3><span class="tl-date">June 2026 · Coimbatore, TN</span></div>
+          <div class="tl-head"><h3>Enthu Technologies Pvt Ltd</h3><span class="tl-date">June 2026 · Coimbatore, TN</span></div>
           <span class="tl-role">PCB Design Intern</span>
           <ul>
             <li>Designed PCB schematics and single &amp; double-layer layouts using KiCad.</li>
             <li>Performed footprint selection, PCB routing, and Design Rule Check (DRC) validation.</li>
             <li>Generated Gerber (CAM) files, BOM, and manufacturing outputs following industry-standard PCB design practices.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head"><h3>Edu Net Foundation</h3><span class="tl-date">Nov – Dec 2025 · Coimbatore, TN</span></div>
+          <span class="tl-role">Employability Skills &amp; Digital Literacy with AI Intern</span>
+          <ul>
+            <li>Developed communication, teamwork, problem-solving, and professional skills through structured employability and digital literacy training.</li>
+            <li>Gained practical proficiency in MS Office, digital tools, online collaboration platforms, and cybersecurity fundamentals.</li>
+            <li>Acquired foundational knowledge of AI and its real-world applications, strengthening analytical thinking and decision-making.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head"><h3>Edu Net Foundation</h3><span class="tl-date">Oct – Nov 2025 · Coimbatore, TN</span></div>
+          <span class="tl-role">Shell Green Skills (Sustainability) Intern</span>
+          <ul>
+            <li>Gained hands-on experience across the AI/ML model development lifecycle — data preprocessing, visualization, modeling, model selection, evaluation, and optimization.</li>
+            <li>Applied AI techniques to sustainability and Green Skills challenges, building solutions and prototypes for real-world applications.</li>
+            <li>Strengthened project management skills by meeting weekly milestones and delivering within deadlines under mentorship.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head"><h3>Edu Net Foundation</h3><span class="tl-date">Sept – Oct 2025 · Coimbatore, TN</span></div>
+          <span class="tl-role">Artificial Intelligence &amp; Cloud Technology Intern</span>
+          <ul>
+            <li>Completed a 4-week internship in AI and Cloud Technology through Edu Net Foundation in collaboration with IBM SkillsBuild.</li>
+            <li>Gained foundational knowledge of AI concepts, cloud computing, data storage, and cloud-based applications through structured technical training.</li>
+            <li>Strengthened technical and professional skills through hands-on learning in an AICTE-recognized program.</li>
           </ul>
         </div>
         <div class="tl-item">
@@ -518,18 +544,22 @@
       <h2 class="title reveal">Projects</h2>
       <div class="proj-grid reveal">
         <div class="proj-card featured">
-          <div class="proj-top"><h3>EcoSentinel</h3><span class="badge">In Progress</span></div>
-          <p style="color:var(--muted); font-size:14px; margin:0;">TinyML-based wildlife protection &amp; forest surveillance</p>
+          <div class="proj-top"><h3>CommHand</h3><span class="badge">Featured</span></div>
+          <p style="color:var(--muted); font-size:14px; margin:0;">Assistive gesture-to-speech device — Oct 2025</p>
           <ul>
-            <li>Always-on PDM audio classification on an Arduino Nano 33 BLE Sense, with ESP32-CAM image capture on trigger.</li>
-            <li>LoRa for long-range comms and Blynk for mobile alerting; RMS-based anomaly detection with a TFLite Micro classifier.</li>
+            <li>Designed a prototype using sensors and a microcontroller to detect hand movements and translate them into text and audible speech.</li>
+            <li>Bridges the communication gap for individuals with speech disabilities by converting physical gestures into vocal output.</li>
           </ul>
-          <div class="proj-stack">
-            <span class="chip-tag">TinyML</span><span class="chip-tag">Edge Impulse</span><span class="chip-tag">LoRa</span><span class="chip-tag">ESP32-CAM</span>
-          </div>
         </div>
         <div class="proj-card">
-          <div class="proj-top"><h3>Automated Valves to Regulate Water Flow</h3><span class="proj-date">Jan 2025</span></div>
+          <div class="proj-top"><h3>Fake News Detector Using AI</h3><span class="proj-date">Oct 2025</span></div>
+          <ul>
+            <li>Developed a machine learning model to combat misinformation by classifying news as "REAL" or "FAKE" in real-time.</li>
+            <li>Built a user-friendly Streamlit web app for users to input headlines and get instant authenticity predictions.</li>
+          </ul>
+        </div>
+        <div class="proj-card">
+          <div class="proj-top"><h3>Automated Valves to Regulate Water Flow</h3><span class="proj-date">Dec 2024</span></div>
           <ul>
             <li>Designed to achieve optimal crop yield through automated flow control.</li>
             <li>Replaces manual control in piped and micro-irrigation systems that can't adapt to changing soil moisture levels.</li>
@@ -561,21 +591,18 @@
           </div>
         </div>
         <div class="skill-block">
-          <h4>Also familiar with</h4>
-          <div class="tags">
-            <span class="rtag alt">ARM &amp; RISC-V</span><span class="rtag alt">RTOS</span>
-            <span class="rtag alt">I2C / SPI / UART / CAN</span><span class="rtag alt">TFLite Micro</span>
-          </div>
-        </div>
-        <div class="skill-block">
           <h4>Certifications &amp; Training</h4>
           <ul class="cert-list">
             <li>Embedded for Beginners — NIELIT</li>
             <li>VLSI for Beginners — NIELIT</li>
             <li>Introduction to Industry 4.0 &amp; IoT — NPTEL</li>
             <li>Cloud Computing — NPTEL</li>
+            <li>Artificial Intelligence Fundamentals — IBM</li>
             <li>Azure AI Fundamentals — Microsoft</li>
             <li>Machine Learning Foundations — AWS</li>
+            <li>Web Design and Development — Skill India</li>
+            <li>Generative AI Foundations — Oracle</li>
+            <li>System Administration RH124 — Red Hat</li>
           </ul>
         </div>
         <div class="meta-row">
@@ -593,9 +620,18 @@
       <h2 class="title reveal">Activities</h2>
       <div class="tl reveal">
         <div class="tl-item">
+          <div class="tl-head"><h3>Campus Ambassador — BECON'26</h3><span class="tl-date">Dec 2025 – Feb 2026</span></div>
+          <span class="tl-role">Event Coordinator</span>
+          <ul>
+            <li>Selected as a Campus Ambassador for BECON'26, the annual Business and Entrepreneurship Conclave organized by the Entrepreneurship Development Cell, IIT Delhi.</li>
+            <li>Recognized for dedication and significant contribution throughout the BECON'26 tenure.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
           <div class="tl-head"><h3>Executive Member, ECE Department — ELCONATOR'24</h3><span class="tl-date">Sep 2024 – May 2025</span></div>
           <span class="tl-role">Event Coordinator</span>
           <ul>
+            <li>Spearheaded the modernization of labs.</li>
             <li>Initiated and executed the setup of a project lab to support final-year and mini projects.</li>
           </ul>
         </div>
@@ -632,9 +668,9 @@
   // ---- EDIT YOUR REAL CONTACT INFO HERE ----
   const CONTACT = {
     location: "Coimbatore, Tamil Nadu, India",
-    phone: "+91 8124829521",
+    phone: "+91 81248 29521",
     email: "ssnaveen2225@gmail.com",
-    linkedin: "https://linkedin.com/in/-naveen-s-s/"
+    linkedin: "https://www.linkedin.com/in/-naveen-s-s/"
   };
   document.getElementById('pinLoc').textContent = CONTACT.location;
   document.getElementById('pinPhone').innerHTML = '<a href="tel:' + CONTACT.phone.replace(/\s/g,'') + '">' + CONTACT.phone + '</a>';
