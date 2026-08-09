@@ -420,7 +420,7 @@
         <div class="chip-sub">Embedded Systems<br>Engineer</div>
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">// Final-year ECE · SNS College of Technology</p>
+        <p class="eyebrow">// Final-year ECE Student · SNS College of Technology</p>
         <h1>Building real-time systems from <em>copper trace</em> to <em>edge-AI firmware</em>.</h1>
         <p>I design PCBs, write embedded firmware for Arduino and ESP32 platforms, and wire up the IoT protocols that get sensors talking to the cloud — backed by a minor in AI &amp; Data Science and six hands-on internships spanning PCB design, telecom infrastructure, product realization, and applied AI/cloud training.</p>
         <div class="hero-cta">
@@ -650,6 +650,7 @@
           <tr><td>2</td><td>Phone</td><td id="pinPhone">—</td></tr>
           <tr><td>3</td><td>Email</td><td id="pinEmail">—</td></tr>
           <tr><td>4</td><td>LinkedIn</td><td id="pinLinkedin">—</td></tr>
+          <tr><td>5</td><td>GitHub</td><td id="pinGithub">—</td></tr>
         </table>
         <div class="contact-cta">
           <a href="#" id="ctaEmail" class="btn btn-primary">Send a Message</a>
@@ -670,13 +671,16 @@
     location: "Coimbatore, Tamil Nadu, India",
     phone: "+91 81248 29521",
     email: "ssnaveen2225@gmail.com",
-    linkedin: "https://www.linkedin.com/in/-naveen-s-s/"
+    linkedin: "https://www.linkedin.com/in/-naveen-s-s/",
+    github: "https://github.com/NaveenSS101"
   };
   document.getElementById('pinLoc').textContent = CONTACT.location;
   document.getElementById('pinPhone').innerHTML = '<a href="tel:' + CONTACT.phone.replace(/\s/g,'') + '">' + CONTACT.phone + '</a>';
   document.getElementById('pinEmail').innerHTML = '<a href="mailto:' + CONTACT.email + '">' + CONTACT.email + '</a>';
   const liLabel = CONTACT.linkedin.replace(/^https?:\/\//,'');
   document.getElementById('pinLinkedin').innerHTML = '<a href="' + CONTACT.linkedin + '" target="_blank" rel="noopener">' + liLabel + '</a>';
+  const ghLabel = CONTACT.github.replace(/^https?:\/\//,'');
+  document.getElementById('pinGithub').innerHTML = '<a href="' + CONTACT.github + '" target="_blank" rel="noopener">' + ghLabel + '</a>';
   document.getElementById('ctaEmail').href = 'mailto:' + CONTACT.email;
 
   // mobile nav toggle
