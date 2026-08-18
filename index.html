@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
   :root{
     --bg:#0d1f19;
@@ -242,6 +243,28 @@
   }
 
   .lede{color:var(--muted); font-size:16px; max-width:64ch; margin:0 0 22px;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 200px; gap:36px; align-items:start;}
+  .about-photo .frame{
+    position:relative; border:1px solid var(--border); border-radius:8px;
+    background:var(--panel); padding:6px;
+  }
+  .about-photo .frame::before, .about-photo .frame::after{
+    content:""; position:absolute; width:6px; height:6px; border-radius:50%;
+    background:var(--border); top:6px;
+  }
+  .about-photo .frame::before{left:6px;} .about-photo .frame::after{right:6px;}
+  .about-photo img{
+    width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:4px; display:block;
+  }
+  .photo-caption{
+    font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--muted-2); text-align:center; margin-top:9px;
+  }
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-photo{max-width:180px; margin:0 auto;}
+  }
   .callout{
     border:1px solid var(--border); border-left:2px solid var(--teal); border-radius:6px;
     padding:16px 18px; background:rgba(99,182,174,0.05); max-width:64ch;
@@ -324,11 +347,21 @@
 
   .cert-list{display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; margin:0; padding:0; list-style:none;}
   .cert-list li{
-    font-size:14px; color:var(--muted); padding-left:16px; position:relative;
+    font-size:14px; padding-left:16px; position:relative;
   }
   .cert-list li::before{
     content:""; position:absolute; left:0; top:8px; width:6px; height:1px; background:var(--copper-dim);
   }
+  .cert-list a{
+    color:var(--muted); text-decoration:none; display:inline-flex; align-items:baseline; gap:6px;
+    border-bottom:1px solid transparent; transition:color .18s ease, border-color .18s ease;
+  }
+  .cert-list a i{font-size:10px; color:var(--copper-dim); transition:color .18s ease;}
+  .cert-list a:hover, .cert-list a:focus-visible{color:var(--cream); border-color:var(--copper);}
+  .cert-list a:hover i, .cert-list a:focus-visible i{color:var(--copper-bright);}
+  .cert-list a.cert-pending{cursor:default; opacity:.75;}
+  .cert-list a.cert-pending i{color:var(--muted-2);}
+  .cert-list a.cert-pending:hover{color:var(--muted); border-color:transparent;}
 
   .meta-row{display:flex; flex-wrap:wrap; gap:36px; margin-top:8px;}
   .meta-col span{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; color:var(--muted-2); text-transform:uppercase; margin-bottom:6px;}
@@ -343,6 +376,7 @@
   .pinout td{padding:14px 10px;}
   .pinout td:first-child{color:var(--copper); width:56px;}
   .pinout td:nth-child(2){color:var(--muted-2); text-transform:uppercase; font-size:11.5px; letter-spacing:0.06em; width:110px;}
+  .pinout td:nth-child(2) i{color:var(--copper); width:16px; text-align:center; margin-right:8px; font-size:13px;}
   .pinout td:last-child{color:var(--cream);}
   .pinout a{color:var(--cream); text-decoration:none; border-bottom:1px solid var(--border);}
   .pinout a:hover{color:var(--teal); border-color:var(--teal);}
@@ -443,8 +477,12 @@
       <div class="rail"></div><div class="via"></div>
       <div class="kicker"><span class="ref">U1</span> · About</div>
       <h2 class="title reveal">Datasheet</h2>
-      <div class="reveal">
+      <div class="reveal about-grid">
         <p class="lede">I'm an Electronics &amp; Communication Engineering student who likes taking a system all the way from schematic to solder joint. My work spans PCB layout and design-rule checks in KiCad, embedded firmware on microcontroller platforms, and the AI/cloud fundamentals I've picked up across six internships — from telecom infrastructure at BSNL to applied AI and Green Skills training with Edu Net Foundation and IBM SkillsBuild. A minor in AI &amp; Data Science ties it together: I'm as comfortable evaluating a model as I am routing the board it runs on.</p>
+        <div class="about-photo">
+          <div class="frame"><img src="profile.jpg" alt="Naveen S S"></div>
+          <div class="photo-caption">FIG. 1 — Naveen S S</div>
+        </div>
       </div>
     </div>
   </section>
@@ -592,17 +630,17 @@
         </div>
         <div class="skill-block">
           <h4>Certifications &amp; Training</h4>
-          <ul class="cert-list">
-            <li>Embedded for Beginners — NIELIT</li>
-            <li>VLSI for Beginners — NIELIT</li>
-            <li>Introduction to Industry 4.0 &amp; IoT — NPTEL</li>
-            <li>Cloud Computing — NPTEL</li>
-            <li>Artificial Intelligence Fundamentals — IBM</li>
-            <li>Azure AI Fundamentals — Microsoft</li>
-            <li>Machine Learning Foundations — AWS</li>
-            <li>Web Design and Development — Skill India</li>
-            <li>Generative AI Foundations — Oracle</li>
-            <li>System Administration RH124 — Red Hat</li>
+          <ul class="cert-list" id="certList">
+            <li><a data-cert="nielit-embedded" href="#" target="_blank" rel="noopener">Embedded for Beginners — NIELIT <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="nielit-vlsi" href="#" target="_blank" rel="noopener">VLSI for Beginners — NIELIT <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="nptel-iot" href="#" target="_blank" rel="noopener">Introduction to Industry 4.0 &amp; IoT — NPTEL <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="nptel-cloud" href="#" target="_blank" rel="noopener">Cloud Computing — NPTEL <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="ibm-ai" href="#" target="_blank" rel="noopener">Artificial Intelligence Fundamentals — IBM <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="azure-ai" href="#" target="_blank" rel="noopener">Azure AI Fundamentals — Microsoft <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="aws-ml" href="#" target="_blank" rel="noopener">Machine Learning Foundations — AWS <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="skillindia-webdev" href="#" target="_blank" rel="noopener">Web Design and Development — Skill India <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="oracle-genai" href="#" target="_blank" rel="noopener">Generative AI Foundations — Oracle <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a data-cert="redhat-rh124" href="#" target="_blank" rel="noopener">System Administration RH124 — Red Hat <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
           </ul>
         </div>
         <div class="meta-row">
@@ -646,14 +684,14 @@
       <h2 class="title reveal">Pinout</h2>
       <div class="contact-flex reveal">
         <table class="pinout" id="pinoutTable">
-          <tr><td>1</td><td>Location</td><td id="pinLoc">—</td></tr>
-          <tr><td>2</td><td>Phone</td><td id="pinPhone">—</td></tr>
-          <tr><td>3</td><td>Email</td><td id="pinEmail">—</td></tr>
-          <tr><td>4</td><td>LinkedIn</td><td id="pinLinkedin">—</td></tr>
-          <tr><td>5</td><td>GitHub</td><td id="pinGithub">—</td></tr>
+          <tr><td>1</td><td><i class="fa-solid fa-location-dot"></i>Location</td><td id="pinLoc">—</td></tr>
+          <tr><td>2</td><td><i class="fa-solid fa-phone"></i>Phone</td><td id="pinPhone">—</td></tr>
+          <tr><td>3</td><td><i class="fa-solid fa-envelope"></i>Email</td><td id="pinEmail">—</td></tr>
+          <tr><td>4</td><td><i class="fa-brands fa-linkedin"></i>LinkedIn</td><td id="pinLinkedin">—</td></tr>
+          <tr><td>5</td><td><i class="fa-brands fa-github"></i>GitHub</td><td id="pinGithub">—</td></tr>
         </table>
         <div class="contact-cta">
-          <a href="#" id="ctaEmail" class="btn btn-primary">Send a Message</a>
+          <a href="#" id="ctaEmail" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i>&nbsp; Send a Message</a>
         </div>
       </div>
     </div>
@@ -669,10 +707,10 @@
   // ---- EDIT YOUR REAL CONTACT INFO HERE ----
   const CONTACT = {
     location: "Coimbatore, Tamil Nadu, India",
-    phone: "+91 81248 29521",
-    email: "ssnaveen2225@gmail.com",
-    linkedin: "https://www.linkedin.com/in/-naveen-s-s/",
-    github: "https://github.com/NaveenSS101"
+    phone: "+91 00000 00000",
+    email: "your.email@example.com",
+    linkedin: "https://linkedin.com/in/your-profile",
+    github: "https://github.com/your-username"
   };
   document.getElementById('pinLoc').textContent = CONTACT.location;
   document.getElementById('pinPhone').innerHTML = '<a href="tel:' + CONTACT.phone.replace(/\s/g,'') + '">' + CONTACT.phone + '</a>';
@@ -682,6 +720,33 @@
   const ghLabel = CONTACT.github.replace(/^https?:\/\//,'');
   document.getElementById('pinGithub').innerHTML = '<a href="' + CONTACT.github + '" target="_blank" rel="noopener">' + ghLabel + '</a>';
   document.getElementById('ctaEmail').href = 'mailto:' + CONTACT.email;
+
+  // ---- EDIT YOUR REAL CREDENTIAL VERIFICATION LINKS HERE ----
+  // Leave a value as "" if you don't have a public verification link for it yet —
+  // it'll stay visible but won't be clickable until you add one.
+  const CERT_LINKS = {
+    "nielit-embedded": "",
+    "nielit-vlsi": "",
+    "nptel-iot": "",
+    "nptel-cloud": "",
+    "ibm-ai": "",
+    "azure-ai": "",
+    "aws-ml": "",
+    "skillindia-webdev": "",
+    "oracle-genai": "",
+    "redhat-rh124": ""
+  };
+  document.querySelectorAll('#certList a[data-cert]').forEach(a => {
+    const url = CERT_LINKS[a.dataset.cert];
+    if (url) {
+      a.href = url;
+    } else {
+      a.href = '#';
+      a.classList.add('cert-pending');
+      a.title = 'Verification link coming soon';
+      a.addEventListener('click', e => e.preventDefault());
+    }
+  });
 
   // mobile nav toggle
   const nav = document.getElementById('nav');
